@@ -1,11 +1,14 @@
 library(shiny) 
 library(shinythemes)
 
-shinyUI(fluidPage(theme = shinytheme("readable"), pageWithSidebar(
+shinyUI(fluidPage(theme = "bootstrap.min.css", 
+                  
+                  
+    pageWithSidebar(
     
     
     
-    headerPanel("Predicting stature with foot length"), 
+    titlePanel("Predicting stature with foot length"), 
     
     sidebarPanel(
         h4('Parameters of prediction'), 
@@ -22,12 +25,12 @@ shinyUI(fluidPage(theme = shinytheme("readable"), pageWithSidebar(
         ),
     
     mainPanel(
-        h3('PREDICTION'),
-        plotOutput("distPlot")
+        tabsetPanel(
+            tabPanel("Plot", plotOutput("distPlot")), 
+            tabPanel("Documentation", p('some ordinary text')) 
+            ))
         
-            ) 
-        
+                    ) 
+            )#theme
             
-                    )
-                ) #theme
-    )
+        )

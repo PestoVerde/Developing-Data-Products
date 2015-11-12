@@ -15,6 +15,8 @@ shinyServer(
             new[,1]<- as.factor(new[,1])
             y<-as.numeric(predict(fit, new))
             p + geom_point(aes(fl, y), color="green", size=5)
+            
+        #output$documentaion <- renderPrint({ "TEST" })
            
         
         
