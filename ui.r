@@ -16,18 +16,25 @@ shinyUI(fluidPage(theme = "bootstrap.min.css",
                     "Foot length", 
                     min = round(min(data$foot_length),0),
                     max = round(max(data$foot_length),0), 
-                    value = round(median(data$foot_length),0)
+                    value = 238
                     ),
         radioButtons("gender", "Gender",
-                 list("Male" = "Male",
-                      "Female" = "Female")
+                 list("Male" = "Man",
+                      "Female" = "Woman")
                       )
         ),
     
     mainPanel(
         tabsetPanel(
             tabPanel("Plot", plotOutput("distPlot")), 
-            tabPanel("Documentation", p('some ordinary text')) 
+            tabPanel("Documentation",p('This small application can predict 
+                                        stature of a person by the length of the
+                                        foot. You should just shoose the gender
+                                        and adjust slider according to the foot 
+                                        length. Big green dot shows the prediction.'),
+                     p('The data is provided by Department of Statistics   
+                        of University of Florida. Data set can be found at
+                       http://www.stat.ufl.edu/~winner/datasets.html.')) 
             ))
         
                     ) 
